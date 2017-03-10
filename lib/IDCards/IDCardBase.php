@@ -1,12 +1,14 @@
 <?php
 namespace Wei\Cards\IDCards;
 
+use Wei\Cards\Base;
+
 /**
  * 身份证解析
  * Class IDCard
  * @package Wei\Cards
  */
-abstract class IDCardBase extends Base{
+abstract class IDCardBase extends Base {
     /**
      * 男
      */
@@ -70,7 +72,7 @@ abstract class IDCardBase extends Base{
      * @param string $idCard 身份证
      * @return null|IDCardBase
      */
-    public static function instance($idCard){
+    public static function getInstance($idCard){
         /* @var $obj IDCardBase */
         $class  = get_called_class();
         $obj    =  new $class($idCard);
@@ -100,7 +102,7 @@ abstract class IDCardBase extends Base{
         $this->setSex();
         $this->setLen();
         $this->setType();
-        $this->getSequenceCode();
+        $this->setSequenceCode();
         $this->setVerifyCode();
     }
 
@@ -156,7 +158,7 @@ abstract class IDCardBase extends Base{
     /**
      * 设置地区
      */
-    protected function setArea($area)
+    protected function setArea()
     {
         $this->area = substr($this->idCard, 4, 2);
     }

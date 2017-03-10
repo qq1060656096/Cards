@@ -15,26 +15,26 @@ class IDCard18 extends IDCardBase{
 
     protected function setBirthday()
     {
-        $birthday[] = substr($this->idCard, 7, 4);
-        $birthday[] = substr($this->idCard, 11, 2);
-        $birthday[] = substr($this->idCard, 13, 2);
+        $birthday[] = substr($this->idCard, 6, 4);
+        $birthday[] = substr($this->idCard, 10, 2);
+        $birthday[] = substr($this->idCard, 12, 2);
         $this->birthday = implode("-", $birthday);
     }
 
     protected function setSex()
     {
-        $sex = substr($this->idCard, 17, 1);
-        $this->sex = $sex%2 == 0 ? self::SEX_MALE : self::SEX_FEMALE;
+        $sex = substr($this->idCard, 16, 1);
+        $this->sex = $sex%2 == 1 ? self::SEX_MALE : self::SEX_FEMALE;
     }
 
     protected function setType()
     {
-        $this->type = IDCardType::BIT_15;
+        $this->type = IDCardType::BIT_18;
     }
 
     protected function setSequenceCode()
     {
-        $this->sequenceCode == substr($this->idCard, 15, 4);
+        $this->sequenceCode = substr($this->idCard, 14, 4);
     }
 
     protected function setVerifyCode()
