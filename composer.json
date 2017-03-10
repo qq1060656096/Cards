@@ -1,0 +1,30 @@
+{
+  "name": "wei/cards",
+  "type": "library",
+  "description": "base library for PHP",
+  "keywords": ["id cards", "id card", "身份证解析","身份证类"],
+  "license": "BSD",
+  "authors": [
+    {
+      "name": "Zhao Wei Jie",
+      "email": "1060656096@qq.com",
+      "role": "Founder and project lead"
+    }
+  ],
+  "autoload": {
+    "psr-4":{
+      "Wei\\Cards\\lib\\":"lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Wei\\Cards\\Tests\\": "tests"
+    }
+  },
+  "require": {
+    "doctrine/dbal": "v2.5.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.4"
+  }
+}
