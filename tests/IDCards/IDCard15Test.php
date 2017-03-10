@@ -12,9 +12,15 @@ use Wei\Cards\Tests\WeiTestCase;
 class IDCard15Test extends WeiTestCase {
 
     public function test(){
-//        $idCard115 = IDCard15::getInstance('511528197802015121');
-//        var_dump($idCard115);
-//        $this->assertTrue($idCard115 ? true : false);
-
+        $idCard = IDCard15::getInstance('511528197802015');
+        $this->assertTrue($idCard ? true : false);
+        $this->assertEquals("51", $idCard->getProvince());
+        $this->assertEquals("15", $idCard->getCity());
+        $this->assertEquals("28", $idCard->getArea());
+        $this->assertEquals("1919-78-02", $idCard->getBirthday());
+        $this->assertEquals("0", $idCard->getSex());
+        $this->assertEquals("15", $idCard->getLen());
+        $this->assertEquals("15", $idCard->getType());
+        $this->assertEquals("015", $idCard->getSequenceCode());
     }
 }

@@ -13,16 +13,15 @@ use Wei\Cards\Tests\WeiTestCase;
 class IDCard18Test extends WeiTestCase {
 
     public function test(){
-        $idCard18 = IDCard18::getInstance('511528197802015121');
-        $this->assertTrue($idCard18 ? true : false);
-        $this->assertEquals("51", $idCard18->getProvince());
-        $this->assertEquals("15", $idCard18->getCity());
-        $this->assertEquals("28", $idCard18->getArea());
-        $this->assertEquals("1978-02-01", $idCard18->getBirthday());
-        $this->assertEquals("0", $idCard18->getSex());
-        $this->assertEquals("18", $idCard18->getLen());
-        $this->assertEquals("18", $idCard18->getType());
-        $this->assertEquals("5121", $idCard18->getSequenceCode());
-
+        $idCard = IDCard18::getInstance('511528197802015121');
+        $this->assertTrue($idCard ? true : false);
+        $this->assertEquals("51", $idCard->getProvince());
+        $this->assertEquals("15", $idCard->getCity());
+        $this->assertEquals("28", $idCard->getArea());
+        $this->assertEquals("1978-02-01", $idCard->getBirthday());
+        $this->assertEquals("0", $idCard->getSex());
+        $this->assertEquals("18", $idCard->getLen());
+        $this->assertEquals("18", $idCard->getType());
+        $this->assertEquals("5121", $idCard->getSequenceCode());
     }
 }
