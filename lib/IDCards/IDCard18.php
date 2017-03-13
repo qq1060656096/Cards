@@ -42,4 +42,13 @@ class IDCard18 extends IDCardBase{
         $this->verifyCode = "";
     }
 
+    /**
+     * 18位转15位身份证
+     */
+    public function convertTo15(){
+        $idCard15 = '';
+        $idCard15 = substr($this->idCard, 0, 6).substr($this->idCard, 8, 9);
+        return $idCard15;
+    }
+
 }

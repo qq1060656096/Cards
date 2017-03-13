@@ -11,7 +11,7 @@ class IDCard{
     /**
      * 根据身份证获取解析身份实例
      * @param string $idCard 身份证信息
-     * @return null|IDCardBase
+     * @return null|IDCardBase|IDCard18|IDCard15
      */
     public static function getInstance($idCard){
         $obj = null;
