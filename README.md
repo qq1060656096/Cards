@@ -54,3 +54,7 @@ if ($idCard) {
 ### 单元测试使用
 > --bootstrap 在测试前先运行一个 "bootstrap" PHP 文件
 * **--bootstrap引导测试:** phpunit --bootstrap ./tests/TestInit.php ./tests/
+### 生成地区代码json文件"area-code.json"
+* **--bootstrap引导测试:** phpunit --bootstrap ./tests/TestInit.php ./tests/AreaCodeParseTest.php
+
+phpunit --bootstrap ./tests/TestInit.php ./tests/AreaTest.php
