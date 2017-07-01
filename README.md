@@ -1,9 +1,12 @@
 # Cards
-身份证号码信息解析
+> 用于解析身份证号码中的信息,年龄、性别、省份代码、城市代码和地区代码,根据地区代码获取地区名称,身份证15位和18位互转
 
-## 使用示例
+### 身份证号码信息解析示例
 
 ```php
+<?php
+use Wei\Cards\IDCards\IDCard;
+
 //成功返回对象失败返回null
 $idCard = IDCard::getInstance('身份证号码');
 
@@ -48,9 +51,37 @@ if ($idCard) {
     // 转18位身份证"110103199901013302"
     echo $idCard->convertTo18(),"\n";
 }
+
+```
+
+### 根据身份证号码获取地区信息
+```php
+<?php
+use Wei\Cards\Area;
+use Wei\Cards\IDCards\IDCard15;
+
+// 注意如果无法获取身份证地区信息,代表身份证号码是不合法的
+$idCard     = IDCard15::getInstance('110105990101443');
+// 获取省份信息
+$province   = Area::getProvince($idCard->getProvince());
+// 身份名
+var_dump($province['name']);
+// 获取城市信息
+$city       = Area::getCity($idCard->getProvince(), $idCard->getCity());
+// 城市名
+var_dump($city['name']);
+// 获取地区信息
+$area       = Area::getArea($idCard->getProvince(), $idCard->getCity(), $idCard->getArea());
+// 地区名
+var_dump($area['name']);
+
 ```
 
 
 ### 单元测试使用
 > --bootstrap 在测试前先运行一个 "bootstrap" PHP 文件
 * **--bootstrap引导测试:** phpunit --bootstrap ./tests/TestInit.php ./tests/
+### 生成地区代码json文件"area-code.json"
+* **--bootstrap引导测试:** phpunit --bootstrap ./tests/TestInit.php ./tests/AreaCodeParseTest.php
+
+phpunit --bootstrap ./tests/TestInit.php ./tests/AreaTest.php
