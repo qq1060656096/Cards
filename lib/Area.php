@@ -24,36 +24,37 @@ class Area
 
     /**
      * 获取身份信息
-     * @param $provinceCode
-     * @return array
+     *
+     * @param $provinceCode 省份代码
+     * @return array|null 成功数组,失败null
      */
     public static function getProvince($provinceCode)
     {
-        return isset(self::getData()[$provinceCode]) ? self::getData()[$provinceCode] : [];
+        return isset(self::getData()[$provinceCode]) ? self::getData()[$provinceCode] : null;
     }
 
     /**
      * 获取城市信息
      *
-     * @param string $provinceCode 身份代码
+     * @param string $provinceCode 省份代码
      * @param string $cityCode 城市代码
-     * @return array
+     * @return array|null 成功数组,失败null
      */
     public static function getCity($provinceCode, $cityCode)
     {
-        return isset(self::getProvince($provinceCode)['items']["$cityCode"]) ? self::getProvince($provinceCode)['items']["$cityCode"] : [];
+        return isset(self::getProvince($provinceCode)['items']["$cityCode"]) ? self::getProvince($provinceCode)['items']["$cityCode"] : null;
     }
 
     /**
      * 获取地区信息
      *
-     * @param string $provinceCode 身份代码
+     * @param string $provinceCode 省份代码
      * @param string $cityCode 城市代码
      * @param string $areaCode 地区代码
-     * @return array
+     * @return array|null 成功数组,失败null
      */
     public static function getArea($provinceCode, $cityCode, $areaCode)
     {
-        return isset(self::getCity()['items']["$areaCode"]) ? self::getCity()['items']["$areaCode"] : [];
+        return isset(self::getCity($provinceCode, $cityCode)['items']["$areaCode"]) ? self::getCity($provinceCode, $cityCode)['items']["$areaCode"] : null;
     }
 }
