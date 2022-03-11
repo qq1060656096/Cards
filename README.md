@@ -3,6 +3,7 @@
 
 ### 身份证号码信息解析示例
 
+民政部行政区划代码地址：http://www.mca.gov.cn/article/sj/xzqh/1980/
 ```php
 <?php
 use Wei\Cards\IDCards\IDCard;
